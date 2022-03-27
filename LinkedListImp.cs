@@ -41,30 +41,27 @@ namespace LinkedList
             }
         }
 
-        public bool Pop(int input)
+        public bool PopLast(int index)
         {
-            if (head == null)
+            Node obj = head;
+            if (index == 0)
             {
-                return false;
+                head = head.next;
+                return true;
             }
-            if (head.next == null)
-            {
-                head = null;
-            }
-
             Node t = head, pre = null;
-            while (t != null)
+            while (index > 0 && t != null)
             {
-                if (t.data == input)
-                {
-                    pre.next = t.next;
-                    Console.WriteLine("{0} top element is deleted from linked List", input);
-                    return true;
-                }
+                index--;
                 pre = t;
                 t = t.next;
             }
-            return false;
+            if (index == 0)
+            {
+                pre.next = t.next;
+                return true;
+            }
+            throw new NullReferenceException("Index is not in range");
         }
 
         public void Display()
