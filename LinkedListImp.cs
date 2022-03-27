@@ -38,5 +38,20 @@ namespace LinkedList
                 return true;
             }
         }
+
+        public  void Display()
+        {
+            Console.WriteLine("Displaying the LinkedList elements");
+            Node t = head;
+            if (t == null)
+            {
+                Console.WriteLine("Linked list is Empty");
+            }
+            while (t != null)
+            {
+                Console.WriteLine(t.data + " ");
+                t = t.next;
+            }
+        }
     }
 }
