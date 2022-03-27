@@ -11,7 +11,7 @@ namespace LinkedList
             list.Add(70);
             list.Add(30);
             list.Add(56);
-            list.PopLast(2);
+            list.Search(30);
             list.Display();
         }
     }

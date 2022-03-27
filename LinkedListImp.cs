@@ -41,27 +41,23 @@ namespace LinkedList
             }
         }
 
-        public bool PopLast(int index)
+        public bool Search(int data)
         {
-            Node obj = head;
-            if (index == 0)
+            if (head == null)
+
+                throw new NullReferenceException("List is Empty");
+
+            Node t = head; int count = 0;
+            while (t != null)
             {
-                head = head.next;
-                return true;
-            }
-            Node t = head, pre = null;
-            while (index > 0 && t != null)
-            {
-                index--;
-                pre = t;
+                count++;
+                if (t.data == data)
+
+                    return true;
+                Console.WriteLine("The given element {0} is present inside the Linked List", data);
                 t = t.next;
             }
-            if (index == 0)
-            {
-                pre.next = t.next;
-                return true;
-            }
-            throw new NullReferenceException("Index is not in range");
+            return false;
         }
 
         public void Display()
