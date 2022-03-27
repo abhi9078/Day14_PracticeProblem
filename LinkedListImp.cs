@@ -17,29 +17,32 @@ namespace LinkedList
         }
     }
 
-    public class LinkList
+
+
+    public class LinkedList
     {
         internal Node head;
 
-        public bool Add(int data)
+        public bool Append(int data)
         {
             Node n = new Node(data);
             if (head == null)
             {
                 head = n;
-                Console.WriteLine("{0} inserted into the link list", n.data);
+                Console.WriteLine("{0} Appended", n.data);
                 return true;
             }
-            else
+            Node t = head;
+            while (t.next != null)
             {
-                n.next = head;
-                head = n;
-                Console.WriteLine("{0} inserted into the link list", n.data);
-                return true;
+                t = t.next;
             }
+            t.next = n;
+            Console.WriteLine("{0} Appended", n.data);
+            return true;
         }
 
-        public  void Display()
+        public void Display()
         {
             Console.WriteLine("Displaying the LinkedList elements");
             Node t = head;

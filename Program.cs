@@ -7,10 +7,10 @@ namespace LinkedList
         static void Main(string[] args)
         {
             Console.WriteLine("Hello welcome to LinkedList;");
-            LinkList list = new LinkList();
-            list.Add(70);
-            list.Add(30);
-            list.Add(56);
+            LinkedList list = new LinkedList();
+            list.Append(56);
+            list.Append(30);
+            list.Append(70);
             list.Display();
         }
     }
