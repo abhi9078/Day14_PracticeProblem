@@ -8,9 +8,10 @@ namespace LinkedList
         {
             Console.WriteLine("Hello welcome to LinkedList;");
             LinkedList list = new LinkedList();
-            list.Add(70);
             list.Add(56);
-            list.Insert(1, 30);
+            list.Add(30);
+            list.Add(70);
+            list.Pop(56);
             list.Display();
         }
     }
