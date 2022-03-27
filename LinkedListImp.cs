@@ -41,32 +41,49 @@ namespace LinkedList
             }
         }
 
-        public bool Insert(int index, int data)
+
+        public bool Delete(int input)
         {
-            Node n = new Node(data);
-            if (index == 0)
+            if (head == null)
             {
-                n.next = head.next;
-                head = n;
-                Console.WriteLine("{0} element is inserted after 30", n.data);
-                return true;
+                return false;
+            }
+            if (head.next == null)
+            {
+                head = null;
             }
 
             Node t = head, pre = null;
-            while (index > 0 && t != null)
+            while (t != null)
             {
-                index--;
+                if (t.data == input)
+                {
+                    pre.next = t.next;
+                    Console.WriteLine("{0} data has been deleted from linked List", input);
+                    return true;
+                }
                 pre = t;
                 t = t.next;
             }
-            if (index == 0)
-            {
-                pre.next = n;
-                n.next = t;
-                Console.WriteLine("{0} element is inserted after 30", n.data);
-                return true;
-            }
+            return false;
             throw new NullReferenceException("index is not in range");
+        }
+
+        public int Size()
+        {
+            if (head == null)
+            {
+                return 0;
+            }
+            Node t = head;
+            int count = 0;
+            while (t != null)
+            {
+                count++;
+                t = t.next;
+            }
+            return count;
+
         }
 
         public void Display()
