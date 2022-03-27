@@ -41,23 +41,32 @@ namespace LinkedList
             }
         }
 
-        public bool Search(int data)
+        public bool Insert(int index, int data)
         {
-            if (head == null)
-
-                throw new NullReferenceException("List is Empty");
-
-            Node t = head; int count = 0;
-            while (t != null)
+            Node n = new Node(data);
+            if (index == 0)
             {
-                count++;
-                if (t.data == data)
+                n.next = head.next;
+                head = n;
+                Console.WriteLine("{0} element is inserted after 30", n.data);
+                return true;
+            }
 
-                    return true;
-                Console.WriteLine("The given element {0} is present inside the Linked List", data);
+            Node t = head, pre = null;
+            while (index > 0 && t != null)
+            {
+                index--;
+                pre = t;
                 t = t.next;
             }
-            return false;
+            if (index == 0)
+            {
+                pre.next = n;
+                n.next = t;
+                Console.WriteLine("{0} element is inserted after 30", n.data);
+                return true;
+            }
+            throw new NullReferenceException("index is not in range");
         }
 
         public void Display()
