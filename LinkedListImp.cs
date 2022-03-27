@@ -23,23 +23,50 @@ namespace LinkedList
     {
         internal Node head;
 
-        public bool Append(int data)
+        public bool Add(int data)
         {
             Node n = new Node(data);
             if (head == null)
             {
                 head = n;
-                Console.WriteLine("{0} Appended", n.data);
+                Console.WriteLine("{0} is Added into the link list", n.data);
                 return true;
             }
-            Node t = head;
-            while (t.next != null)
+            else
             {
+                n.next = head;
+                head = n;
+                Console.WriteLine("{0} is Added into the link list", n.data);
+                return true;
+            }
+        }
+
+        public bool Insert(int index, int data)
+        {
+            Node n = new Node(data);
+            if (index == 0)
+            {
+                n.next = head.next;
+                head = n;
+                Console.WriteLine("{0} is inserted into Linkedlist", n.data);
+                return true;
+            }
+
+            Node t = head, pre = null;
+            while (index > 0 && t != null)
+            {
+                index--;
+                pre = t;
                 t = t.next;
             }
-            t.next = n;
-            Console.WriteLine("{0} Appended", n.data);
-            return true;
+            if (index == 0)
+            {
+                pre.next = n;
+                n.next = t;
+                Console.WriteLine("{0} is inserted into LinkedList", n.data);
+                return true;
+            }
+            throw new NullReferenceException("index is not in range");
         }
 
         public void Display()
